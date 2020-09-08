@@ -98,6 +98,8 @@
 
                 switch (VarType)
                 {
+                    case VarEnum.VT_BSTR:
+                        return Marshal.PtrToStringBSTR(Value);
                     case VarEnum.VT_EMPTY:
                         return null;
                     case VarEnum.VT_FILETIME:
