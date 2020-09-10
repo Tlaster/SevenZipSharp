@@ -35,6 +35,7 @@ namespace SevenZip
 
         private static string DetermineLibraryFilePath()
         {
+            return null;
             if (!string.IsNullOrEmpty(ConfigurationManager.AppSettings["7zLocation"]))
             {
                 return ConfigurationManager.AppSettings["7zLocation"];
@@ -496,17 +497,17 @@ namespace SevenZip
 
         public static void SetLibraryPath(string libraryPath)
         {
-            if (_modulePtr != IntPtr.Zero && !Path.GetFullPath(libraryPath).Equals( 
-                Path.GetFullPath(_libraryFileName), StringComparison.OrdinalIgnoreCase))
-            {
-                throw new SevenZipLibraryException(
-                    "can not change the library path while the library \"" + _libraryFileName + "\" is being used.");
-            }
-            if (!File.Exists(libraryPath))
-            {
-                throw new SevenZipLibraryException(
-                    "can not change the library path because the file \"" + libraryPath + "\" does not exist.");
-            }
+            //if (_modulePtr != IntPtr.Zero && !Path.GetFullPath(libraryPath).Equals( 
+            //    Path.GetFullPath(_libraryFileName), StringComparison.OrdinalIgnoreCase))
+            //{
+            //    throw new SevenZipLibraryException(
+            //        "can not change the library path while the library \"" + _libraryFileName + "\" is being used.");
+            //}
+            //if (!File.Exists(libraryPath))
+            //{
+            //    throw new SevenZipLibraryException(
+            //        "can not change the library path because the file \"" + libraryPath + "\" does not exist.");
+            //}
             _libraryFileName = libraryPath;
             _features = null;
         }
