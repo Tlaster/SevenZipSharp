@@ -20,15 +20,14 @@ build:
   project: 'SevenZip.sln'
   publish_nuget: false
 
+test: off
+
 after_build:
   - cmd: nuget pack package.nuspec -version "%APPVEYOR_BUILD_VERSION%"
 
 artifacts:
   - path: 'Squid-Box.SevenZip*.nupkg'
     name: NuGet
-
-  - path: 'coverage.xml'
-    name: Code Coverage
 
 deploy:
   - provider: NuGet
